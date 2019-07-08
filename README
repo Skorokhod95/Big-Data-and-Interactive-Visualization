@@ -1,0 +1,29 @@
+The task of spam-letters definition. Spam is an unsolicited message, especially advertising, as well as
+sending messages repeatedly on the same site. We have two important problems with spam
+definition:
+1. The spam-filter does not define spam-letter and user get some “potential dangerous” letter.
+2. Also, important letters can be sent to spam folder, due to incorrect classification by the mail
+filter.
+
+Dataset (description, origin)
+1. 48 continuous real [0,100] attributes of type word_freq_WORD
+= percentage of words in the e-mail that match WORD, i.e. 100 * (number of times the WORD
+appears in the e-mail) / total number of words in e-mail. A &quot;word&quot; in this case is any string of
+alphanumeric characters bounded by non-alphanumeric characters or end-of-string.
+2. 6 continuous real [0,100] attributes of type char_freq_CHAR]
+= percentage of characters in the e-mail that match CHAR, i.e. 100 * (number of CHAR occurences)
+/ total characters in e-mail
+3. 1 continuous real [1,...] attribute of type capital_run_length_average
+= average length of uninterrupted sequences of capital letters
+4. 1 continuous integer [1,...] attribute of type capital_run_length_longest
+= length of longest uninterrupted sequence of capital letters
+5. 1 continuous integer [1,...] attribute of type capital_run_length_total
+= sum of length of uninterrupted sequences of capital letters
+= total number of capital letters in the e-mail
+6. 1 nominal {0,1} class attribute of type spam
+= denotes whether the e-mail was considered spam (1) or not (0), i.e. unsolicited commercial e-mail.
+
+For solving classification task we used machine learning methods that is realized by MLlib is
+Apache Spark's scalable machine learning library [1] in this project.
+
+[1] MLlib | Apache Spark URL: https://spark.apache.org/mllib/ 
